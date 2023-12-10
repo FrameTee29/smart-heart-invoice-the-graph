@@ -1,0 +1,20 @@
+{
+  "sepolia": {
+    "InvoiceFactory": {
+      "address": "0x9332DAb7E7d53623275E228500c5F2437652c6B9",
+      "startBlock": 4843775
+    }
+  },
+  "mumbai": {
+    "InvoiceFactory": {
+      "address": "0xa6500Ba6487d2eb4c0cE3d96F0249CD1BAE9BF90",
+      "startBlock": 43315050
+    }
+  },
+  "fuji": {
+    "InvoiceFactory": {
+      "address": "0x35c543d0BEE30F767C657eC4DA9ae89EB697Ad9D",
+      "startBlock": 28396050
+    }
+  }
+}

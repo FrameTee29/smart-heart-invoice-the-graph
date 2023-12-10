@@ -1,0 +1,51 @@
+type Claim @entity(immutable: true) {
+  id: Bytes!
+  _chainSelector: BigInt! # uint64
+  _beneficiary: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferRequested @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Pay @entity(immutable: true) {
+  id: Bytes!
+  _chainSelector: BigInt! # uint64
+  _token: Bytes! # address
+  _amount: BigInt! # uint256
+  _receiver: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokensTransferred @entity(immutable: true) {
+  id: Bytes!
+  messageId: Bytes! # bytes32
+  destinationChainSelector: BigInt! # uint64
+  receiver: Bytes! # address
+  token: Bytes! # address
+  tokenAmount: BigInt! # uint256
+  feeToken: Bytes! # address
+  fees: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

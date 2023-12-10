@@ -1,0 +1,37 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: InvoiceFactory
+    network: fuji
+    source:
+      abi: InvoiceFactory
+      address: "0x35c543d0BEE30F767C657eC4DA9ae89EB697Ad9D"
+      startBlock: 28396050
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Claim
+        - OwnershipTransferRequested
+        - OwnershipTransferred
+        - Pay
+        - TokensTransferred
+      abis:
+        - name: InvoiceFactory
+          file: ./abis/InvoiceFactory.json
+      eventHandlers:
+        - event: Claim(uint64,address)
+          handler: handleClaim
+        - event: OwnershipTransferRequested(indexed address,indexed address)
+          handler: handleOwnershipTransferRequested
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Pay(uint64,address,uint256,address)
+          handler: handlePay
+        - event: TokensTransferred(indexed bytes32,indexed
+            uint64,address,address,uint256,address,uint256)
+          handler: handleTokensTransferred
+      file: ./src/invoice-factory.ts
